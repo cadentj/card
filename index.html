@@ -1,5 +1,6 @@
 <style>
     .codepen-wrapper {
+        display: flex;
         background-color: #d9dcd6;
         height: 97.5vh;
         align-items: center;
@@ -7,17 +8,19 @@
     }
 
     .book {
+        height: 15rem;
+        width: 25rem;
         font-size: 1.4rem;
-        box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, .25);
         text-align: center;
-        position: absolute;
+        position: fixed;
+        left: 50%;
+        /* bring your own prefixes */
+        transform: translate(-50%, -70%);
         color: #484e4a;
-        top: 2rem;
-        right: 30rem;
     }
 
     .page {
-        width: 25rem;
+        width: 100%;
         height: 35rem;
         perspective: 1500px;
     }
@@ -63,16 +66,22 @@
         opacity: 1;
     }
 
-    @media only screen and (max-width: 600px) {
-        .codepen-wrapper  {
-            background-color: black;
-        }
-
+    @media only screen and (max-width: 1000px) {
         .page:hover {
-            transform: scale(1.5);
-            transition-duration: 5000ms;
+            transform: scale(2);
+            transition-duration: 2000ms;
         }
     }
+
+    @media only screen and (min-width: 1000px) {
+        .page:hover {
+            transform: translateX(12.5rem);
+            transition-duration: 2000ms;
+            
+        }
+    }
+
+    
 
     .page:hover .page__1 {
         transform: rotateY(-180deg);
